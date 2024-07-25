@@ -1,6 +1,5 @@
-'use client';
-// import { Inter } from "next/font/google";
 import { Poppins } from "next/font/google";
+import Script from 'next/script';
 import "../../node_modules/slick-carousel/slick/slick.css";
 import "../../node_modules/slick-carousel/slick/slick-theme.css";
 import "./globals.css";
@@ -9,7 +8,6 @@ import { Footer } from "./component/Footer/Footer";
 import UiProvider from "./store/UiProvider";
 import { Wrapper } from "./Wrapper/Wrapper";
 
-// const inter = Inter({ subsets: ["latin"] });
 const poppinsFont = Poppins({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
@@ -28,11 +26,12 @@ export default function RootLayout({ children }) {
           name="description"
           content="House Banao is the best interior designers & construction company in India, which provides house interiors, office interiors, commercial interior and residential interiors and other services such as house renovation. With a team of expert engineers, planners, architects and designers."
         />
-        <script
-          async
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DXVWWZQ0NL"
-        ></script>
-        <script
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -41,8 +40,10 @@ export default function RootLayout({ children }) {
               gtag('config', 'G-DXVWWZQ0NL');
             `,
           }}
-        ></script>
-        <script
+          strategy="afterInteractive"
+        />
+        <Script
+          id="gtm"
           dangerouslySetInnerHTML={{
             __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -52,10 +53,10 @@ export default function RootLayout({ children }) {
               })(window,document,'script','dataLayer','GTM-PKHCSZWC');
             `,
           }}
-        ></script>
+          strategy="afterInteractive"
+        />
       </head>
-
-      <body className={poppinsFont.className}>
+      <body className={poppinsFont?.className || "fallback-class"}>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-PKHCSZWC"
