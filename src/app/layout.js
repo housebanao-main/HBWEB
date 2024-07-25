@@ -1,4 +1,4 @@
-"use client";
+'use client';
 // import { Inter } from "next/font/google";
 import { Poppins } from "next/font/google";
 import "../../node_modules/slick-carousel/slick/slick.css";
@@ -16,11 +16,6 @@ const poppinsFont = Poppins({
   variable: "--font-poppins",
 });
 
-// export const metadata = {
-//   title: "Craft Your Dream Home with House Banao",
-//   description: "Craft Your Dream Home: Build Your Vision, One Brick at a Time",
-// };
-
 export default function RootLayout({ children }) {
   console.log("TESTING");
   return (
@@ -28,6 +23,11 @@ export default function RootLayout({ children }) {
       <head>
         <title>House Banao - Best Interior Designer & Construction Company</title>
         <link rel="icon" href="/favicon/housebanao.ico" sizes="any" />
+        <meta name="title" content="House Banao - Best Interior Designer & Construction Company" />
+        <meta
+          name="description"
+          content="House Banao is the best interior designers & construction company in India, which provides house interiors, office interiors, commercial interior and residential interiors and other services such as house renovation. With a team of expert engineers, planners, architects and designers."
+        />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-DXVWWZQ0NL"
